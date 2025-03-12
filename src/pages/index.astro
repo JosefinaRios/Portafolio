@@ -1,11 +1,69 @@
 ---
+import Badge from '../components/Badge.astro';
+import Experience from '../components/Experience.astro';
+import GithubIcon from '../components/Icons/GithubIcon.astro';
+import LinkedInIcon from '../components/Icons/LinkedInIcon.astro';
+import Mail from '../components/Icons/Mail.astro';
+import SocialPill from '../components/Icons/SocialPill.astro';
+import SectionContainer from '../components/SectionContainer.astro';
 import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import Briefcase from '../components/Icons/Briefcase.astro';
+import ProyectosIcon from '../components/Icons/ProyectosIcon.astro';
+import Projects from '../components/Projects.astro';
+
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
+<Layout
+ title="Portafolio de Josefina Rios - Tecnica en Programacion">
+	<main class="px-4">
+		<SectionContainer class= "py-44 pb-32">
+			<img class="rounded-full w-21 h-21 mb-4" 
+			src='/public/Image/Fotoportafolio.png'
+			alt=""/>
+
+		<h1 
+		class="text-white text-3xl md:text-4xl  lg:text-5xl font-bold flex flex-row gap-x-4 pb-6  lg:pb-10">
+			Hola!, Soy Josefina 
+			 <a href="https://www.linkedin.com/in/josefina-rios" 
+			 target="_blank" 
+			 rel="noopener" 
+			  class="flex justify-center items-center">
+			  <Badge>Disponible para trabajar</Badge>
+			</a>
+		 </h1>
+		<h2 class="text-xl  lg:text-2xl  text-wrap max-w-[700px]">
+			 <span class=" text-yellow-200/90 ">Tecnica en Programacion</span>. Desarrolladora Web. De Cordoba, Argentina . 
+		</h2>
+
+         <nav class="flex gap-4 mt-8 flex-wrap">
+				<SocialPill  href="https://www.linkedin.com/in/josefina-rios">
+					<LinkedInIcon class="size-4 md:size-6"></LinkedInIcon>
+					LinkedIn
+				</SocialPill>
+				<SocialPill  href="https://github.com/JosefinaRios">
+					<GithubIcon class="size-4 md:size-6"></GithubIcon>
+					GitHub
+				</SocialPill>
+				<SocialPill  href="mailto:josefinarios857@gmail.com">
+					<Mail class="size-4 md:size-6"></Mail>
+					 josefinarios857@gmail.com
+				</SocialPill>
+			</nav>	 
+	    </SectionContainer>
+
+
+		<SectionContainer id="proyectos">
+			<h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+				<ProyectosIcon class="size-7"/>
+				Proyectos
+			</h2>
+			<Projects/>
+		</SectionContainer>
+		
+	</main>
 </Layout>
+ 

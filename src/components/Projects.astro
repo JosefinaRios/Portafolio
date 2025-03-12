@@ -1,0 +1,83 @@
+---
+import Html from './Icons/Html.astro'
+import Css from './Icons/Css.astro'
+import JavaScript from './Icons/JavaScript.astro';
+import CSharp from './Icons/Csharp.astro';
+import Bootstrap from './Icons/Bootstrap.astro';
+import Capturaproy1 from '../Image/CapturaProyect1.png';
+const TAGS = {
+    HTML:{name:"HTML",
+    class: "bg-orange-500 text-white",
+    icon: Html,
+},   
+CSS:{
+    name:"CSS",
+    class: "bg-blue-500 text-white",
+    icon: Css,
+},
+JAVASCRIPT:{
+    name: "JavaScript",
+    class: "bg-yellow-300 text-black",
+    icon: JavaScript,
+},
+csharp:{
+    name: "C# ASP.NET CORE MVC",
+    class: "bg-indigo-700 text-white",
+    icon: CSharp,
+},
+Bootstrap:{
+    name: "Bootstrap",
+    class: "bg-indigo-100 text-black",
+    icon: Bootstrap,
+},
+}
+
+const PROJECTS =[
+    { title: "App Web - Taller Gudiño's",
+    description: 'Desarrollo de un sistema web para la gestión de un taller de chapa y pintura, utilizando ASP.NET Core MVC, C# y SQL Server, enfocado en la administración de clientes, vehículos, etc.',
+    link: '',
+    github: 'https://github.com/JosefinaRios/PracticaProfesional',
+    image: '/Image/PracticaProfesional.jpg',
+    tags:[TAGS.HTML, TAGS.CSS, TAGS.JAVASCRIPT, TAGS.csharp, TAGS.Bootstrap]
+},
+{
+    title: "Muebles - Venta de Muebles",
+     description: 'Desarrollo de una pagina web, esta tiene un registro de sus productos, la cual se puede agregar, eliminar, y modificar tales productos',
+    link: 'https://clinquant-mochi-65d60b.netlify.app/',
+     github: 'https://github.com/JosefinaRios/Muebles-web',
+     image: '/Image/Muebles.webp',
+     tags:[TAGS.HTML, TAGS.CSS, TAGS.JAVASCRIPT]
+}
+   
+]
+---
+
+
+{
+    PROJECTS.map(({image, title, description, tags, link}) =>(
+        <article class="mb-7">
+            <h3 class="text-2xl font-semibold text-yellow-200 mb-2">{title}</h3>
+            <p class="text-lg mb-4 text-pretty"> {description}</p>
+            <ul class="flex gap-x-2 flex-row mb-3 ">
+             {tags.map(tag =>(
+                <li>
+                    <span class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-2 px-2`}>
+                    <tag.icon class="size-4"/>
+                    {tag.name}
+                </span>
+                    </li>
+             ))}
+            </ul>
+            <img class="rounded shadow-2xl shadow-white/10"
+             src={image} alt={`Captura de pantalla del proyecto ${image}`}/>
+
+<button class="relative px-2 py-2 mt-3 border-0 rounded-sm font-semibold tracking-tight uppercase cursor-pointer text-[#2c9caf] transition-all duration-1000 text-xs overflow-hidden outline-2 outline-[#2c9caf] hover:text-white hover:scale-105 hover:outline-[#70bdca] hover:shadow-[4px_5px_17px_-4px_#268391]">
+  <span class="absolute left-[-50px] top-0 w-0 h-full bg-[#2c9caf] skew-x-[45deg] z-[-1] transition-all duration-1000"></span>
+  <a href={`${link}`} class="relative z-10 inline-block px-4 py-2">Link</a>
+</button>
+
+
+        </article>
+             
+    ))
+}
